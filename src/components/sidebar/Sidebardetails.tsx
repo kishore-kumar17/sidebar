@@ -1,6 +1,6 @@
 import React from "react";
 import { FcAbout, FcBookmark } from "react-icons/fc";
-import { BsHouseDoor } from "react-icons/bs";
+import { BsFillArrowDownCircleFill, BsHouseDoor } from "react-icons/bs";
 import {
   FiAlignJustify,
   FiArrowDown,
@@ -36,8 +36,13 @@ const Sidebardetails = [
         path: "/nest2",
       },
       {
+        title: "# Kumaran",
+        path: "/nest3",
+      },
+      {
         title: " + Channels",
         path: "/nest4",
+        icon:<BsFillArrowDownCircleFill />,
 
         subNavNest: [
           {

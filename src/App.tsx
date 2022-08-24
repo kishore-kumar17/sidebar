@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Customcomponent from "./components/custom component/Customcomponent";
 import Navnestfour from "./components/sidebar-nest/Navnestfour";
 import Navnestone from "./components/sidebar-nest/Navnestone";
 import Navnestthree from "./components/sidebar-nest/Navnestthree";
@@ -35,6 +36,8 @@ function App() {
           <Route path="/nest42" element={<Subnavnesttwo />}></Route>
           <Route path="/nest43" element={<Subnavnestthree />}></Route>
           <Route path="/nest44" element={<Subnavnestfour />}></Route>
+          <Route path="/cc" element={<Customcomponent />}></Route>
+
 
 
 

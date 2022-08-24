@@ -7,9 +7,9 @@ const Sidebar = styled(Link)`
   color: yellow;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
   list-style: none;
-  height: 60px;
+  height: 40px;
   text-decoration: none;
   font-size: 18px;
   color: red;
@@ -17,7 +17,7 @@ const Sidebar = styled(Link)`
 
 const SidebarLabel = styled.span`
   margin-left: 20px;
-  color:white;
+  color: white;
 `;
 
 const DropdownLink = styled(Link)`
@@ -29,7 +29,7 @@ const DropdownLink = styled(Link)`
   color: white;
   font-size: 18px;
   &:hover {
-    background:lightblue;
+    background: lightblue;
     border: 2px solid white;
     border-radious: 5px;
     curser: pointer;
@@ -45,19 +45,16 @@ const Subnav = ({ item }: any, path: string) => {
 
   const [subNavNest, setsubNavNest] = useState(false);
   const showsubNavMenu = () => setsubNavNest(!subNavNest);
-//   console.log("subNav", item);
-
-
+  //   console.log("subNav", item);
 
   useEffect(() => {
     setpathnow(window.location.pathname);
   }, [location]);
 
-
-//   console.log("test", pathnow, item.path);
+  //   console.log("test", pathnow, item.path);
 
   return (
-    <>
+    <div>
       <Sidebar
         to={item.path}
         style={pathnow === item.path ? { backgroundColor: "lightblue" } : {}}
@@ -75,11 +72,9 @@ const Subnav = ({ item }: any, path: string) => {
               <DropdownLink
                 to={item.path}
                 style={
-                  pathnow === item.path
-                    ? { backgroundColor: "green" }
-                    : {}
+                  pathnow === item.path ? { backgroundColor: "green" } : {}
                 }
-                onClick={item.subNavNest && showsubNavMenu }
+                onClick={item.subNavNest && showsubNavMenu}
               >
                 {item.icon}
                 <SidebarLabel>{item.title}</SidebarLabel>
@@ -87,7 +82,7 @@ const Subnav = ({ item }: any, path: string) => {
               {subNavNest &&
                 item.subNavNest?.map((item: any) => {
                   return (
-                    <>
+                    <div>
                       <DropdownLink
                         to={item.path}
                         style={
@@ -96,19 +91,18 @@ const Subnav = ({ item }: any, path: string) => {
                             : {}
                         }
                         onClick={item.subNavMenus && showsubNavMenu}
-
                       >
                         {item.icon}
                         <SidebarLabel>{item.title}</SidebarLabel>
                         {item.iconClosed}
                       </DropdownLink>
-                    </>
+                    </div>
                   );
                 })}
             </>
           );
         })}
-    </>
+    </div>
   );
 };
 
